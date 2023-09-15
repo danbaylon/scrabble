@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="card col-md-6 offset-md-3 offset-md-3">
+    <div class="row">
+      <h3 class="text-center"> Save Entry</h3>
+      <hr />
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="alert alert-success" role="alert" *ngIf="msg">
+            {{ msg }}
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="errMsg">
+            {{ errMsg }}
+          </div>
+          <div class="input-group">
+            <input type="text" maxlength="1" class="form-control" id="char1" [(ngModel)]="input.char1" name="char1" (keypress)="alphaOnly($event)" (paste)="onPaste($event)" (keyup)="compute($event)" />
+            <input type="text" maxlength="1" class="form-control" id="char2" [(ngModel)]="input.char2" name="char2" (keypress)="alphaOnly($event)" (paste)="onPaste($event)" (keyup)="compute($event)" />
+            <input type="text" maxlength="1" class="form-control" id="char3" [(ngModel)]="input.char3" name="char3" (keypress)="alphaOnly($event)" (paste)="onPaste($event)" (keyup)="compute($event)" />
+            <input type="text" maxlength="1" class="form-control" id="char4" [(ngModel)]="input.char4" name="char4" (keypress)="alphaOnly($event)" (paste)="onPaste($event)" (keyup)="compute($event)"/>
+            <input type="text" maxlength="1" class="form-control" id="char5" [(ngModel)]="input.char5" name="char5" (keypress)="alphaOnly($event)" (paste)="onPaste($event)" (keyup)="compute($event)"/>
+            <input type="text" maxlength="1" class="form-control" id="char6" [(ngModel)]="input.char6" name="char6" (keypress)="alphaOnly($event)" (paste)="onPaste($event)" (keyup)="compute($event)"/>
+            <input type="text" maxlength="1" class="form-control" id="char7" [(ngModel)]="input.char7" name="char7" (keypress)="alphaOnly($event)" (paste)="onPaste($event)" (keyup)="compute($event)"/>
+            <input type="text" maxlength="1" class="form-control" id="char8" [(ngModel)]="input.char8" name="char8" (keypress)="alphaOnly($event)" (paste)="onPaste($event)" (keyup)="compute($event)"/>
+            <input type="text" maxlength="1" class="form-control" id="char9" [(ngModel)]="input.char9" name="char9" (keypress)="alphaOnly($event)" (paste)="onPaste($event)" (keyup)="compute($event)"/>
+            <input type="text" maxlength="1" class="form-control" id="char10" [(ngModel)]="input.char10" name="char10" (keypress)="alphaOnly($event)" (paste)="onPaste($event)" (keyup)="compute($event)"/>
+          </div>
+          <br />
+          <label>Score : {{ computedScore }} </label>
+          <br />
+          <div class="btn-toolbar justify-content-center">
+            <button type="button" id="btnReset" class="btn btn-primary btn-sm mr-3" (click)="clearForm()">Reset Tiles</button>
+            <button type="button" id="btnSaveScores" class="btn btn-primary btn-sm mr-3" (click)="onSubmit()">Save Scores</button>
+            <button type="button" id="btnViewTopScores" class="btn btn-primary btn-sm mr-3" (click)="onTopScores()">View Top Scores</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

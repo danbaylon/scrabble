@@ -1,0 +1,23 @@
+<div class = "row">
+  <h2> Top 10 Scores</h2>
+</div>
+
+<table class = "table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th> Word </th>
+    <th> Score </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let entry of entries" >
+    <td> {{ entry.word }} </td>
+    <td> {{ entry.score }} </td>
+  </tr>
+  </tbody>
+</table>
+
+<br />
+<div class="btn-toolbar justify-content-center">
+  <button type="button" id="btnSave" class="btn btn-primary btn-sm mr-3" (click)="backToSave()">Back To Save Entry</button>
+</div>

@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "5c000bce-98d3-4de0-9f68-06e3df8314ef",
+		"name": "Scrabble Calculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15793408"
+	},
+	"item": [
+		{
+			"name": "GET - get top 10 Scores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{LOCALHOST}}/app/api/{{version}}/entries/top-scores",
+					"host": [
+						"{{LOCALHOST}}"
+					],
+					"path": [
+						"app",
+						"api",
+						"{{version}}",
+						"entries",
+						"top-scores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - save entry",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"word\": \"exciting\",\n  \"score\": 18\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{LOCALHOST}}/app/api/{{version}}/entry",
+					"host": [
+						"{{LOCALHOST}}"
+					],
+					"path": [
+						"app",
+						"api",
+						"{{version}}",
+						"entry"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

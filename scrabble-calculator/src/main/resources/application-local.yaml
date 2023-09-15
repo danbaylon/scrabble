@@ -1,0 +1,20 @@
+logging:
+  level:
+    ROOT: DEBUG
+    com.palo.it: TRACE
+    org.springframework: INFO
+    org.springframework.boot: INFO
+    org.springframework.web: TRACE
+server:
+  port: 8082
+spring:
+  h2:
+    console.enabled: true
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: ${password:pass}
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect

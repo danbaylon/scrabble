@@ -1,0 +1,20 @@
+logging:
+  level:
+    ROOT: INFO
+server:
+  port: 8081
+  servlet:
+    encoding:
+      enabled: true
+    context-path: /app
+    session:
+      cookie:
+        http-only: true
+springdoc:
+  swagger-ui:
+    path: /index.html
+    enabled: true
+  show-actuator: true
+  packages-to-scan: com.palo.it.web.rest
+app:
+  version: v1
