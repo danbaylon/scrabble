@@ -37,7 +37,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
-    public EntryDto save(EntryDto dto) {
+    public EntryDto save(EntryDto dto) throws ApplicationException {
         if(!isValid(dto)) {
             throw new ApplicationException("This is not a valid entry", new Exception());
         }

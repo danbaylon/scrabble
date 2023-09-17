@@ -51,21 +51,21 @@ class ScrabbleCalculatorApplicationTests {
 
 	@Test
 	void whenValidEntry_thenShouldSaveSuccessfully() throws Exception {
-		EntryDto dto = EntryDto.builder().score(18).word("EXCITING").build();
+		EntryDto dto = EntryDto.builder().score(12).word("WEAK").build();
 
 		mockMvc.perform(post("/api/v1/entry")
 						.contentType("application/json")
 						.content(objectMapper.writeValueAsString(dto)))
 				.andExpect(status().isOk());
 
-		Entry entry = calculatorRepository.findByWord("EXCITING");
-		assertThat(entry.getScore()).isEqualTo(18);
+		Entry entry = calculatorRepository.findByWord("WEAK");
+		assertThat(entry.getScore()).isEqualTo(12);
 	}
 
 
 	@Test
 	void whenNotValidEntryWithNumeric_thenShouldThrowException() throws Exception {
-		EntryDto dto = EntryDto.builder().score(18).word("EXCITING1").build();
+		EntryDto dto = EntryDto.builder().score(12).word("WEAK1").build();
 
 		mockMvc.perform(post("/api/v1/entry")
 							.contentType("application/json")
@@ -75,20 +75,12 @@ class ScrabbleCalculatorApplicationTests {
 
 	@Test
 	void whenNotValidEntryWithWrongScoreValue_thenShouldThrowException() throws Exception {
-		Exception exception = assertThrows(NestedServletException.class, () -> {
-			EntryDto dto = EntryDto.builder().score(9).word("EXCITING").build();
+		EntryDto dto = EntryDto.builder().score(9).word("WEAK").build();
 
-			mockMvc.perform(post("/api/v1/entry")
-							.contentType("application/json")
-							.content(objectMapper.writeValueAsString(dto)))
-					.andExpect(status().isOk());
-		});
-
-		String expectedMessage = "This is not a valid entry";
-		String actualMessage = exception.getMessage();
-
-		assert actualMessage != null;
-		assertTrue(actualMessage.contains(expectedMessage));
+		mockMvc.perform(post("/api/v1/entry")
+						.contentType("application/json")
+						.content(objectMapper.writeValueAsString(dto)))
+				.andExpect(status().isBadRequest());
 	}
 
 	@Test
@@ -105,7 +97,7 @@ class ScrabbleCalculatorApplicationTests {
 	@Test
 	void whenRecordsExist_thenShouldReturnSortedRecords() throws Exception {
 		calculatorRepository.deleteAll(); //clear
-		calculatorRepository.save(entryMapper.toEntity(EntryDto.builder().score(18).word("EXCITING").build()));
+		calculatorRepository.save(entryMapper.toEntity(EntryDto.builder().score(12).word("WEAK").build()));
 
 		MvcResult result = mockMvc.perform(MockMvcRequestBuilders
 						.get("/api/v1/entries/top-scores")
