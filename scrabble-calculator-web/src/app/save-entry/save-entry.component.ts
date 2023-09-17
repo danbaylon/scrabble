@@ -63,11 +63,11 @@ export class SaveEntryComponent implements OnInit {
                                     }, 2000);
                                    },
                                    error => {
-                                    this.errMsg = 'Error encountered: ' + error.error.error;
+                                    this.errMsg = 'Error encountered: ' + error.error.message;
                                     console.log(this.errMsg);
                                     setTimeout(() => {
                                            this.errMsg='';
-                                        }, 2000);
+                                        }, 3000);
                                    });
         this.clearForm();
       } else {
@@ -75,7 +75,7 @@ export class SaveEntryComponent implements OnInit {
         console.log(this.errMsg);
                                             setTimeout(() => {
                                                    this.errMsg='';
-                                                }, 2000);
+                                                }, 3000);
       }
   }
 

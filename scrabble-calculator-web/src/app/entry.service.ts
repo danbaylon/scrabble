@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http'
 import { Entry } from './entry';
+import { map, catchError } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ import { Entry } from './entry';
 
 export class EntryService {
 
-  private baseURL = "http://localhost:8081/app/api/v1";
+  private baseURL = "http://localhost:8082/app/api/v1";
 
   constructor(private httpClient: HttpClient) { }
 
