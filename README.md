@@ -42,6 +42,12 @@ This was implemented with in-memory database. Please open the url to open the co
 http://localhost:8082/app/h2-console/login.jsp
 ```
 
+## Test
+### Backend Service
+```bash
+mvn test
+```
+
 ## Debug
 This was implemented with AOP.  Below are the samples debug messages:
 
